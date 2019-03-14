@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "321909054427",
+    "firebase_url": "https://life-action-plus.firebaseio.com",
+    "project_id": "life-action-plus",
+    "storage_bucket": "life-action-plus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321909054427:android:bd38b5466f96c257",
+        "android_client_info": {
+          "package_name": "com.example.lifeactionplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321909054427-sdrjmb3huvjqgolcgv8f6i9q4fa7co1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZsL5lYz3u1PEo1lBLf4Lui7f8Xij9jSk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
