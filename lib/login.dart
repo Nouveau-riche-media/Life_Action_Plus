@@ -12,8 +12,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return new Stack(
+      fit: StackFit.expand,
       children: <Widget>[
-        Container(decoration:
+         Container(decoration:
         BoxDecoration(
           color: Colors.transparent,
               image: DecorationImage(
@@ -35,16 +36,18 @@ class _LoginPageState extends State<LoginPage> {
               tileMode: TileMode.clamp),
            ),
          ),
-        
+         SizedBox(
+         ),
          Container(
            decoration: BoxDecoration(
           color: Colors.transparent,
               image: DecorationImage(
-                image: AssetImage('assets/logo.png'),
-              ),
+                alignment: Alignment.topRight,
+                image: AssetImage('assets/logo.png' ),
+           ),
         ),
-        height: 60.0,
          ),
+         ListView()
       ],
     );
   }

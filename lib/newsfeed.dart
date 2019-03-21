@@ -10,9 +10,6 @@ class _NewsFeedState extends State<NewsFeed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('text'),
-      ),
       body: Container(
         padding: EdgeInsets.all(32.0),
         child: Center(

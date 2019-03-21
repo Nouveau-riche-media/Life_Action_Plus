@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
               tileMode: TileMode.clamp),
             
         ),
-        child: ListView(
+        child: Column(
           children: <Widget>[
             SizedBox(height: 150.0),
             Column(
@@ -33,10 +33,10 @@ class _HomePageState extends State<HomePage> {
                   color:Colors.white))
               ],
             ),
-            SizedBox(height: 80.0),
+            SizedBox(height: 153.0),
             new Image(
               image: AssetImage('assets/symbol.png'),
-              fit: BoxFit.cover,
+              fit: BoxFit.cover,      
             ),
           ],
         ),
