@@ -35,21 +35,40 @@ class _LoginPageState extends State<LoginPage> {
               stops: [0.0, 1.0],
               tileMode: TileMode.clamp),
            ),
+           
          ),
-         SizedBox(
-         ),
-         Container(
-           decoration: BoxDecoration(
-          color: Colors.transparent,
-              image: DecorationImage(
-                alignment: Alignment.topRight,
-                image: AssetImage('assets/logo.png' ),
-           ),
-        ),
-         ),
-         ListView()
+         SizedBox(height: 10.0),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'EMAIL',
+                            labelStyle: TextStyle(
+                           //     fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue))),
+                        onChanged: (val) {
+                          _email = val;
+                        },
+                      ),
+                      SizedBox(height: 10.0),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'PASSWORD ',
+                            labelStyle: TextStyle(
+                             //   fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue))),
+                        onChanged: (val) {
+                          _password = val;
+                        },
+                        obscureText: true,
+                      ),
       ],
     );
+
   }
   }
 //  RaisedButton(

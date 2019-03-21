@@ -16,7 +16,7 @@ class UserManagement {
       'photoUrl': user.photoUrl
     }).then((value) {
       Navigator.of(context).pop();
-      Navigator.of(context).pushReplacementNamed('/selectpic');
+      Navigator.of(context).pushReplacementNamed('/otp');
     }).catchError((e) {
       print(e);
     });

@@ -30,7 +30,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     FirebaseAuth.instance.currentUser().then((user) {
       setState(() {
@@ -93,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     decoration: InputDecoration(
                         labelText: 'New Name',
                         labelStyle: TextStyle(
-                            fontFamily: 'Montserrat',
+                            //fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold)),
                     onChanged: (value) {
                       newNickName = value;
@@ -156,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 150.0,
                     height: 150.0,
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: Colors.blue,
                         image: DecorationImage(
                             image: NetworkImage(profilePicUrl),
                             fit: BoxFit.cover),
@@ -172,7 +171,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat'),
+                     // fontFamily: 'Montserrat'
+                     ),
                 ),
                 SizedBox(height: 15.0),
                 Text(
@@ -180,7 +180,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(
                       fontSize: 17.0,
                       fontStyle: FontStyle.italic,
-                      fontFamily: 'Montserrat'),
+                      //fontFamily: 'Montserrat'
+                      ),
                 ),
                 SizedBox(height: 75.0),
                 Row(
@@ -192,7 +193,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Material(
                           borderRadius: BorderRadius.circular(20.0),
                           shadowColor: Colors.greenAccent,
-                          color: Colors.green,
+                          color: Colors.blue,
                           elevation: 7.0,
                           child: GestureDetector(
                             onTap: () {
@@ -203,7 +204,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 'Edit Name',
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Montserrat'),
+                             //      fontFamily: 'Montserrat'
+                             ),
                               ),
                             ),
                           ),
@@ -223,7 +225,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 'Edit Photo',
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Montserrat'),
+                                    //fontFamily: 'Montserrat'
+                                    ),
                               ),
                             ),
                           ),
@@ -240,7 +243,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             onTap: () {
                               FirebaseAuth.instance.signOut().then((val) {
                                 Navigator.of(context)
-                                    .pushReplacementNamed('/landingpage');
+                                    .pushReplacementNamed('/login');
                               }).catchError((e) {
                                 print(e);
                               });
@@ -250,11 +253,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                 'Log out',
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Montserrat'),
+                                //    fontFamily: 'Montserrat'
+                                    ),
                               ),
                             ),
                           ),
-                        ))
+                        )),
                   ],
                 ),
               ],

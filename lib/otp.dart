@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
-import 'dashBoard.dart';
+import 'dashboard.dart';
 
 class OtpPage extends StatefulWidget {
   @override
@@ -60,7 +60,7 @@ class _OtpPageState extends State<OtpPage> {
                     FirebaseAuth.instance.currentUser().then((user) {
                       if (user != null) {
                         Navigator.of(context).pop();
-                        Navigator.of(context).pushReplacementNamed('/dashBoard');
+                        Navigator.of(context).pushReplacementNamed('/dashboard');
                       } else {
                         Navigator.of(context).pop();
                       signIn();

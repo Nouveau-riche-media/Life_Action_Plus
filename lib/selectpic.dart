@@ -36,7 +36,7 @@ class _SelectprofilepicPageState extends State<SelectprofilepicPage> {
 
     task.future.then((value) {
       userManagement.updateProfilePic(value.downloadUrl.toString()).then((val) {
-        Navigator.of(context).pushReplacementNamed('/homepage');
+        Navigator.of(context).pushReplacementNamed('/dashboard');
       });
     }).catchError((e) {
       print(e);
