@@ -73,13 +73,13 @@ class _OtpPageState extends State<OtpPage> {
   }
 
   signIn() {
-    // FirebaseAuth.instance
-    //     .signInWithPhoneNumber(verificationId: verificationId, smsCode: smsCode)
-    //     .then((user) {
-    //   Navigator.of(context).pushReplacementNamed('/dashBoard');
-    // }).catchError((e) {
-    //   print(e);
-   // });
+  //   FirebaseAuth.instance
+  //       .signInWithPhoneNumber(verificationId: verificationId, smsCode: smsCode)
+  //       .then((user) {
+  //     Navigator.of(context).pushReplacementNamed('/dashBoard');
+  //   }).catchError((e) {
+  //     print(e);
+  //  });
   }
 
   @override

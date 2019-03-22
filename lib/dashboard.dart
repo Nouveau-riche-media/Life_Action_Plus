@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'profilepage.dart';
 import 'chatpage.dart';
 import 'groups.dart';

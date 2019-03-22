@@ -25,7 +25,7 @@ class _SignupPageState extends State<SignupPage> {
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
                   child: Column(
                     children: <Widget>[
-                      TextField(
+                      TextFormField(
                         decoration: InputDecoration(
                             labelText: 'FULL NAME',
                             labelStyle: TextStyle(
@@ -34,11 +34,11 @@ class _SignupPageState extends State<SignupPage> {
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                        onChanged: (val) {
+                        onSaved: (val) {
                           _nickName = val;
                         },
                       ),SizedBox(height: 10.0),
-                      TextField(
+                      TextFormField(
                         decoration: InputDecoration(
                             labelText: 'EMAIL',
                             labelStyle: TextStyle(
@@ -47,12 +47,13 @@ class _SignupPageState extends State<SignupPage> {
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                        onChanged: (val) {
+                                keyboardType: TextInputType.emailAddress,
+                        onSaved: (val) {
                           _email = val;
                         },
                       ),
                       SizedBox(height: 10.0),
-                      TextField(
+                      TextFormField(
                         decoration: InputDecoration(
                             labelText: 'PASSWORD ',
                             labelStyle: TextStyle(
@@ -61,7 +62,7 @@ class _SignupPageState extends State<SignupPage> {
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                        onChanged: (val) {
+                        onSaved: (val) {
                           _password = val;
                         },
                         obscureText: true,
@@ -84,9 +85,9 @@ class _SignupPageState extends State<SignupPage> {
                                   userUpdateInfo.displayName = _nickName;
                                   userUpdateInfo.photoUrl =
                                       'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg';
-                                  FirebaseAuth.instance
-                                      .updateProfile(userUpdateInfo)
-                                      .then((user) {
+                                  //FirebaseAuth.instance
+                                   //    .updateProfile(userUpdateInfo)
+                                     // .then((user) {
                                     FirebaseAuth.instance
                                         .currentUser()
                                         .then((user) {
@@ -98,9 +99,9 @@ class _SignupPageState extends State<SignupPage> {
                                   }).catchError((e) {
                                     print(e);
                                   });
-                                }).catchError((e) {
-                                  print(e);
-                                });
+                                // }).catchError((e) {
+                                //   print(e);
+                                // });
                               },
                               child: Center(
                                 child: Text(
@@ -111,9 +112,23 @@ class _SignupPageState extends State<SignupPage> {
                                    //   fontFamily: 'Montserrat'
                                    ),
                                 ),
+                                
                               ),
                             ),
+                            
                           )),
+                          SizedBox(height: 15.0),
+                Text('Own an account?'),
+                SizedBox(height: 10.0),
+                RaisedButton(
+                  child: Text('Log in'),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  elevation: 7.0,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('login');
+                  },
+                )
                     ],
                   )),
             ]));

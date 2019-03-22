@@ -19,15 +19,15 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.lightBlue),
-      home: new DashBoardPage(),
+      home: new LoginPage(),
       routes: <String, WidgetBuilder>{
         'carousel': (BuildContext context) => new CarouselPage(),
         'login': (BuildContext context) => new LoginPage(),
-        'newsfeed': (BuildContext context) => new NewsFeed(),
+     //   'newsfeed': (BuildContext context) => new NewsFeed(),
         'homepage': (BuildContext context)=> new HomePage(),
-        'signup': (BuildContext context)=> new SignupPage(),
-        'otp': (BuildContext context)=> new OtpPage(),
-        'dashboard': (BuildContext context)=> new DashBoardPage(),
+       'signup': (BuildContext context)=> new SignupPage(),
+  //      'otp': (BuildContext context)=> new OtpPage(),
+ //       'dashboard': (BuildContext context)=> new DashBoardPage(),
         },
     );
   }
