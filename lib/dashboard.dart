@@ -28,19 +28,19 @@ class _DashBoardPageState extends State<DashBoardPage>
         child: TabBar(
           controller: tabController,
           tabs: <Widget>[
-            new Tab(icon: Icon(Icons.chat)),
-            new Tab(icon: Icon(Icons.group)),
-            new Tab(icon: Icon(Icons.video_library)),
-            new Tab(icon: Icon(Icons.person)),
+            new Tab(icon: Icon(Icons.video_library), text: ('Feeds'),),
+            new Tab(icon: Icon(Icons.chat), text: ('Chat'),),
+            new Tab(icon: Icon(Icons.group), text: ('Group'),),
+            new Tab(icon: Icon(Icons.person), text: ('Profile'),),
           ],
         ),
       ),
       body: new TabBarView(
         controller: tabController,
         children: <Widget>[
+          NewsFeed(),
           ChatPage(),
           GroupsPage(),
-          NewsFeed(),
           ProfilePage(),
         ],
       ),

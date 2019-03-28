@@ -3,8 +3,7 @@ import './homepage.dart';
 import './carousel.dart';
 import './login.dart';
 import './signup.dart';
-import 'newsfeed.dart';
-import './otp.dart';
+import 'otp.dart';
 import './dashboard.dart';
 
 void main() => runApp(
@@ -19,15 +18,14 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.lightBlue),
-      home: new LoginPage(),
+      home: new CarouselPage(),
       routes: <String, WidgetBuilder>{
         'carousel': (BuildContext context) => new CarouselPage(),
         'login': (BuildContext context) => new LoginPage(),
-     //   'newsfeed': (BuildContext context) => new NewsFeed(),
         'homepage': (BuildContext context)=> new HomePage(),
        'signup': (BuildContext context)=> new SignupPage(),
-  //      'otp': (BuildContext context)=> new OtpPage(),
- //       'dashboard': (BuildContext context)=> new DashBoardPage(),
+       'otp': (BuildContext context)=> new OtpPage(),
+       'dashboard': (BuildContext context)=> new DashBoardPage(),
         },
     );
   }

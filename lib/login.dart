@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import './signup.dart';
+
 
 class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
@@ -16,7 +16,9 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Container(child:  Image.asset('assets/doc.jpg', fit: BoxFit.cover),),
+          Container(child:  Image.asset('assets/doc.jpg', 
+          fit: BoxFit.cover),
+          ),
          Container( 
            decoration: BoxDecoration(
              gradient: new LinearGradient(
@@ -35,57 +37,57 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFormField(
-                  decoration: InputDecoration(labelText: 'Email', 
-                  labelStyle:TextStyle(color: Colors.white)),
-                  
-                  keyboardType: TextInputType.emailAddress,
-                  onSaved: (value) {
-                    setState(() {
-                      _email = value;
-                    });
-                  }),
+              TextField(
+                decoration: InputDecoration(hintText: 'Email'),
+                onChanged: (value) {
+                  setState(() {
+                    _email = value;
+                  });
+                },
+              ),
               SizedBox(height: 15.0),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Password',
-                labelStyle:TextStyle(color: Colors.white)),
-                onSaved: (value) {
+              TextField(
+                decoration: InputDecoration(hintText: 'Password'),
+                onChanged: (value) {
                   setState(() {
                     _password = value;
                   });
                 },
                 obscureText: true,
               ),
-              SizedBox(height: 10.0),RaisedButton(
-                  child: Text('Login'),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  elevation: 7.0,
-                  onPressed: () {
-                      FirebaseAuth.instance.signInWithEmailAndPassword(
-                        email: _email,
-                        password: _password).then((FirebaseUser user) {
-                        Navigator.of(context).pushReplacementNamed('dashboard');
-                      }).catchError((e) {
-                        print(e);
-                      });
+              SizedBox (height: 20.0),
+              RaisedButton(
+                child: Text('Login'),
+                color: Colors.blue,
+                textColor: Colors.white,
+                elevation: 7.0,
+                onPressed: () {
+                    FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: _email,
+                      password: _password
+                      ).then((FirebaseUser user) {
+                      Navigator.of(context).pushReplacementNamed('dashboard');
+                    }).catchError((e) {
+                      print(e);
+                    });
+              },
+              
+              ),
+              SizedBox(height: 15.0),
+              Text('Don\'t have an account?'),
+              SizedBox(height: 10.0),
+              RaisedButton(
+                child: Text('Sign Up'),
+                color: Colors.blue,
+                textColor: Colors.white,
+                elevation: 7.0,
+                onPressed: () {
+                  Navigator.of(context).pushNamed('signup');
                 },
-                ),
-                SizedBox(height: 15.0),
-                Text('Don\'t have an account?'),
-                SizedBox(height: 10.0),
-                RaisedButton(
-                  child: Text('Sign Up'),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  elevation: 7.0,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('signup');
-                  },
-                )
+              )
             ],
           ),
-          ),
+        ),
               ],
             ),
     );

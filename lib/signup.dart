@@ -13,56 +13,60 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String _email;
   String _password;
-  String _nickName;
+ String _nickName;
 
   @override
   Widget build(BuildContext context) {
-
     return new Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: ListView(
             children: <Widget>[
+              Container(
+                child: Stack(
+                  children: <Widget>[
+                   
               Container(
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
                   child: Column(
                     children: <Widget>[
-                      TextFormField(
+                      TextField(
                         decoration: InputDecoration(
-                            labelText: 'FULL NAME',
+                            labelText: 'FULL NAME ',
                             labelStyle: TextStyle(
-                               // fontFamily: 'Montserrat',
+                                fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                        onSaved: (val) {
+                        onChanged: (val) {
                           _nickName = val;
                         },
-                      ),SizedBox(height: 10.0),
-                      TextFormField(
+                      ),
+                      SizedBox(height: 10.0),
+                      TextField(
                         decoration: InputDecoration(
                             labelText: 'EMAIL',
                             labelStyle: TextStyle(
-                           //     fontFamily: 'Montserrat',
+                                fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                                keyboardType: TextInputType.emailAddress,
-                        onSaved: (val) {
+                        onChanged: (val) {
                           _email = val;
                         },
                       ),
                       SizedBox(height: 10.0),
-                      TextFormField(
+                      TextField(
                         decoration: InputDecoration(
                             labelText: 'PASSWORD ',
                             labelStyle: TextStyle(
-                             //   fontFamily: 'Montserrat',
+                                fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue))),
-                        onSaved: (val) {
+                        onChanged: (val) {
                           _password = val;
                         },
                         obscureText: true,
@@ -85,9 +89,9 @@ class _SignupPageState extends State<SignupPage> {
                                   userUpdateInfo.displayName = _nickName;
                                   userUpdateInfo.photoUrl =
                                       'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg';
-                                  //FirebaseAuth.instance
-                                   //    .updateProfile(userUpdateInfo)
-                                     // .then((user) {
+                                  // FirebaseAuth.instance
+                                  //     .updateProfile(userUpdateInfo)
+                                  //     .then((user) {
                                     FirebaseAuth.instance
                                         .currentUser()
                                         .then((user) {
@@ -109,28 +113,43 @@ class _SignupPageState extends State<SignupPage> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                   //   fontFamily: 'Montserrat'
-                                   ),
+                                      fontFamily: 'Montserrat'),
                                 ),
-                                
                               ),
                             ),
-                            
                           )),
-                          SizedBox(height: 15.0),
-                Text('Own an account?'),
-                SizedBox(height: 10.0),
-                RaisedButton(
-                  child: Text('Log in'),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  elevation: 7.0,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('login');
-                  },
-                )
+                      SizedBox(height: 20.0),
+                      Container(
+                        height: 40.0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.black,
+                                  style: BorderStyle.solid,
+                                  width: 1.0),
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('login');
+                            },
+                            child: Center(
+                              child: Text('Go Back',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Montserrat')),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   )),
-            ]));
+            ])
+            )]));
   }
 }
+
+
+
+

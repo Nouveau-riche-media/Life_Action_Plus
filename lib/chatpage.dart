@@ -10,11 +10,11 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Center(
-          child: new Text("Chat"),
-        ),
-      ),
+      // appBar: new AppBar(
+      //   title: new Center(
+      //     child: new Text("Chat with a Doc"),
+      //   ),
+      // ),
       body: new _MyList(),
     );
   }
@@ -27,7 +27,7 @@ class _MyList extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       itemBuilder: (context, i) {
         return new ListTile(
-          title: new Text("Doctors"),
+          title: new Text("Doctor"),
           subtitle: new Text(
             "Online",
             style: new TextStyle(color: Colors.green),

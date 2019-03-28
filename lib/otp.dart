@@ -12,6 +12,7 @@ class _OtpPageState extends State<OtpPage> {
   String phoneNo;
   String smsCode;
   String verificationId;
+  String uid;
 
   Future<void> verifyPhone() async {
     final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
@@ -20,7 +21,7 @@ class _OtpPageState extends State<OtpPage> {
     final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
       this.verificationId = verId;
       smsCodeDialog(context).then((value) {
-        print('Sign in');
+        print('Signed in');
       });
     };
     final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
@@ -59,11 +60,14 @@ class _OtpPageState extends State<OtpPage> {
                   onPressed: () {
                     FirebaseAuth.instance.currentUser().then((user) {
                       if (user != null) {
+                        setState(() {
+                          
+                        });
                         Navigator.of(context).pop();
-                        Navigator.of(context).pushReplacementNamed('/dashboard');
+                        Navigator.of(context).pushReplacementNamed('dashboard');
                       } else {
                         Navigator.of(context).pop();
-                      signIn();
+                     // signIn();
                       }
                     });
                   })
@@ -72,15 +76,15 @@ class _OtpPageState extends State<OtpPage> {
         });
   }
 
-  signIn() {
+  // signIn() {
   //   FirebaseAuth.instance
   //       .signInWithPhoneNumber(verificationId: verificationId, smsCode: smsCode)
   //       .then((user) {
-  //     Navigator.of(context).pushReplacementNamed('/dashBoard');
+  //     Navigator.of(context).pushReplacementNamed('dashBoard');
   //   }).catchError((e) {
   //     print(e);
   //  });
-  }
+  // }
 
   @override
   Widget build(BuildContext context) {
