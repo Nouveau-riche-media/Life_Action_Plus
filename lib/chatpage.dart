@@ -10,11 +10,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: new AppBar(
-      //   title: new Center(
-      //     child: new Text("Chat with a Doc"),
-      //   ),
-      // ),
+     
       body: new _MyList(),
     );
   }

@@ -5,7 +5,7 @@ class GroupsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('Groups Page'),
+        child: Text('To-do List'),
       )
     );
   }

@@ -1,91 +1,54 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-
-
+import 'package:video_player/video_player.dart';
 
 class NewsFeed extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new NewsFeedState();
-  }
+
+  _NewsFeedState createState() => _NewsFeedState();
 }
 
-class NewsFeedState extends State<NewsFeed> {
-  var _isLoading = true;
+class _NewsFeedState extends State<NewsFeed> {
 
-  var videos;
-
-  _fetchData() async {
-
-    final url = "https://api.letsbuildthatapp.com/youtube/home_feed";
-
-    final response = await http.get(url);
-
-    if (response.statusCode == 200) {
-
-      final map = json.decode(response.body);
-      final videosJson = map["videos"];
-
-
-      setState(() {
-        _isLoading = false;
-        this.videos = videosJson;
-      });
-    }
-  }
+    VideoPlayerController _controller;
+    bool _isPlaying = false;
 
   @override
+  void initState() { 
+    super.initState();
+    _controller =VideoPlayerController.network('http://html5videoplayer.net/videos/toystory.mp4')
+    ..addListener((){
+        final bool isPlaying = _controller.value.isPlaying;
+        if (isPlaying !=_isPlaying) {
+          setState(() {
+            _isPlaying = isPlaying;
+          });
+        }
+    })
+    ..initialize().then((_){
+      setState(() {
+        
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        appBar: new AppBar( 
-          actions: <Widget>[
-            new IconButton(
-              icon: new Icon(Icons.refresh),
-              onPressed: () {
-                print("Reloading...");
-                setState(() {
-                  _isLoading = true;
-                });
-                _fetchData();
-              },
-            )
-          ],
-        ),
-        body: new Center(
-          child: _isLoading
-              ? new CircularProgressIndicator()
-              : new ListView.builder(
-                  itemCount: this.videos != null ? this.videos.length : 0,
-                  itemBuilder: (context, i) {
-                    final video = this.videos[i];
-                    return new Column(
-                      children: <Widget>[
-                        new Container(
-                          padding: new EdgeInsets.all(16.0),
-                          child: new Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              new Image.network(video["imageUrl"]),
-                              new Container(
-                                height: 8.0,
-                              ),
-                              new Text(
-                                video["name"],
-                                style: new TextStyle(fontSize: 16.0),
-                              ),
-                            ],
-                          ),
-                        ),
-                        new Divider()
-                      ],
-                    );
-                  },
-                ),
-        ),
-      ),
+    return MaterialApp(
+       debugShowCheckedModeBanner: false,
+       home: Scaffold(
+         backgroundColor: Colors.blue,
+         body: Center(
+           child: 
+             _controller.value.initialized?AspectRatio(
+             aspectRatio: _controller.value.aspectRatio,
+             child: VideoPlayer(_controller),
+             ):Container(),
+             ),
+             floatingActionButton: FloatingActionButton(
+               onPressed: _controller.value.isPlaying? _controller.pause :_controller.play,
+               child: Icon(
+                 _controller.value.isPlaying ? Icons.pause_circle_outline :Icons.play_circle_outline
+               ),
+         ),
+       ),
     );
   }
 }

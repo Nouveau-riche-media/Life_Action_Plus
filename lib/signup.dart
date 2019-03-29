@@ -61,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
                         decoration: InputDecoration(
                             labelText: 'PASSWORD ',
                             labelStyle: TextStyle(
-                                fontFamily: 'Montserrat',
+                               // fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                             focusedBorder: UnderlineInputBorder(
@@ -113,7 +113,8 @@ class _SignupPageState extends State<SignupPage> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat'),
+                                //      fontFamily: 'Montserrat'
+                                ),
                                 ),
                               ),
                             ),
@@ -138,7 +139,8 @@ class _SignupPageState extends State<SignupPage> {
                               child: Text('Go Back',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat')),
+                                    //  fontFamily: 'Montserrat'
+                                      )),
                             ),
                           ),
                         ),

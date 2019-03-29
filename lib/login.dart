@@ -76,14 +76,28 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 15.0),
               Text('Don\'t have an account?'),
               SizedBox(height: 10.0),
-              RaisedButton(
-                child: Text('Sign Up'),
-                color: Colors.blue,
-                textColor: Colors.white,
-                elevation: 7.0,
-                onPressed: () {
-                  Navigator.of(context).pushNamed('signup');
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('Sign Up'),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    elevation: 7.0,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('signup');
+                    },
+                  ),
+                  RaisedButton(
+                    child: Text('Forgot Password'),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    elevation: 7.0,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('');
+                    },
+                  ),
+                ],
               )
             ],
           ),

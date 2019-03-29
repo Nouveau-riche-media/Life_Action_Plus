@@ -29,8 +29,8 @@ class _DashBoardPageState extends State<DashBoardPage>
           controller: tabController,
           tabs: <Widget>[
             new Tab(icon: Icon(Icons.video_library), text: ('Feeds'),),
-            new Tab(icon: Icon(Icons.chat), text: ('Chat'),),
-            new Tab(icon: Icon(Icons.group), text: ('Group'),),
+            new Tab(icon: Icon(Icons.chat), text: ('Doctors'),),
+            new Tab(icon: Icon(Icons.notification_important), text: ('To-Do'),),
             new Tab(icon: Icon(Icons.person), text: ('Profile'),),
           ],
         ),
