@@ -25,7 +25,7 @@ class _SelectprofilepicPageState extends State<SelectprofilepicPage> {
     });
   }
 
-  // uploadImage() {
+  uploadImage() {
   //   var randomno = Random(25);
   //   final StorageReference firebaseStorageRef = FirebaseStorage.instance
   //       .ref()
@@ -39,7 +39,7 @@ class _SelectprofilepicPageState extends State<SelectprofilepicPage> {
   //   }).catchError((e) {
   //     print(e);
   //   });
-  // }
+   }
 
   UserManagement userManagement = new UserManagement();
 
@@ -201,18 +201,18 @@ class _SelectprofilepicPageState extends State<SelectprofilepicPage> {
                           shadowColor: Colors.greenAccent,
                           color: Colors.green,
                           elevation: 7.0,
-                         // child: GestureDetector(
-                            //onTap: uploadImage,
-                            // child: Center(
-                            //   child: Text(
-                            //     'Upload',
-                            //     style: TextStyle(
-                            //         color: Colors.white,
-                            //         //fontFamily: 'Montserrat'
-                            //         ),
-                            //   ),
-                            // ),
-                          // ),
+                         child: GestureDetector(
+                            onTap: uploadImage,
+                            child: Center(
+                              child: Text(
+                                'Upload',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    //fontFamily: 'Montserrat'
+                                    ),
+                              ),
+                            ),
+                          ),
                         )
                         ),
                     Container(

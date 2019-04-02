@@ -6,12 +6,32 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
+  Animation animation;
+  AnimationController animationController;
     String _email;
     String _password;
 
+
+  @override
+  void initState() {
+    super.initState();
+    animationController =
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
+ 
+    animation = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
+        parent: animationController, curve: Curves.fastOutSlowIn));
+ 
+    animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+   return AnimatedBuilder(
+      animation: animationController,
+      builder: (BuildContext context, Widget child) {
+
     return new Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -37,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextField(
+              TextField( 
                 decoration: InputDecoration(hintText: 'Email'),
                 onChanged: (value) {
                   setState(() {
@@ -74,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
               
               ),
               SizedBox(height: 15.0),
-              Text('Don\'t have an account?'),
+              Text('Don\'t have an account?',),
               SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,5 +126,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
     );
   }
+   );
+   }
 }
 

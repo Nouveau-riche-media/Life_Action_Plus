@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'profilepage.dart';
 import 'chatpage.dart';
-import 'groups.dart';
-import 'newsfeed.dart';
+import 'videofeed.dart';
+import 'news.dart';
 
 class DashBoardPage extends StatefulWidget {
   @override
@@ -28,9 +28,9 @@ class _DashBoardPageState extends State<DashBoardPage>
         child: TabBar(
           controller: tabController,
           tabs: <Widget>[
+            new Tab(icon: Icon(Icons.announcement), text: ('To-Do'),),
             new Tab(icon: Icon(Icons.video_library), text: ('Feeds'),),
             new Tab(icon: Icon(Icons.chat), text: ('Doctors'),),
-            new Tab(icon: Icon(Icons.notification_important), text: ('To-Do'),),
             new Tab(icon: Icon(Icons.person), text: ('Profile'),),
           ],
         ),
@@ -38,9 +38,9 @@ class _DashBoardPageState extends State<DashBoardPage>
       body: new TabBarView(
         controller: tabController,
         children: <Widget>[
+          NewsPage(),
           NewsFeed(),
           ChatPage(),
-          GroupsPage(),
           ProfilePage(),
         ],
       ),

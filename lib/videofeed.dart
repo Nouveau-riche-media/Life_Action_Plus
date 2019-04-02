@@ -34,6 +34,9 @@ class _NewsFeedState extends State<NewsFeed> {
     return MaterialApp(
        debugShowCheckedModeBanner: false,
        home: Scaffold(
+          appBar: new AppBar(
+        title: new Text('Video of the Day'),
+      ),
          backgroundColor: Colors.blue,
          body: Center(
            child: 
@@ -43,9 +46,11 @@ class _NewsFeedState extends State<NewsFeed> {
              ):Container(),
              ),
              floatingActionButton: FloatingActionButton(
+               foregroundColor: Colors.blue,
+               backgroundColor: Colors.white,
                onPressed: _controller.value.isPlaying? _controller.pause :_controller.play,
                child: Icon(
-                 _controller.value.isPlaying ? Icons.pause_circle_outline :Icons.play_circle_outline
+                 _controller.value.isPlaying ? Icons.pause :Icons.play_arrow
                ),
          ),
        ),
